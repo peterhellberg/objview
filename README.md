@@ -3,6 +3,8 @@ objview
 
 A simple QML interface to the go-qml wavefront parser. (Requires Qt 5)
 
+![tv4 play 3d logo](http://assets.c7.se/skitch/objview_-_tv4_play_3d_logo-20140906-155743.png)
+
 ## Dependencies
 
 On Mac OS X you'll need [Qt 5](https://qt-project.org/wiki/Qt_5.0).
