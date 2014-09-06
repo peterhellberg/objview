@@ -39,7 +39,7 @@ func run() error {
 		return err
 	}
 
-	qml.RegisterTypes("GoExtensions", 1, 0, []qml.TypeSpec{{
+	qml.RegisterTypes("ObjView", 0, 1, []qml.TypeSpec{{
 		Init: func(m *Model, obj qml.Object) {
 			m.Object = obj
 			m.model = model
@@ -55,12 +55,10 @@ func run() error {
 
 	win.On("widthChanged", func(w int) {
 		width = w
-		fmt.Println("Width:", w)
 	})
 
 	win.On("heightChanged", func(h int) {
 		height = h
-		fmt.Println("Height:", h)
 	})
 
 	win.Show()
@@ -79,13 +77,12 @@ type Model struct {
 
 func (m *Model) SetRotation(rotation int) {
 	m.Rotation = rotation
+
 	m.Call("update")
 }
 
 func (m *Model) Paint(p *qml.Painter) {
 	gl := GL.API(p)
-
-	//width := float32(500) // float32(m.Int("width"))
 
 	gl.Enable(GL.BLEND)
 	gl.BlendFunc(GL.SRC_ALPHA, GL.ONE_MINUS_SRC_ALPHA)
@@ -142,12 +139,12 @@ func (m *Model) Paint(p *qml.Painter) {
 const qmlString = `
 // Start of the QML string
 import QtQuick 2.0
-import GoExtensions 1.0
+import ObjView 0.1
 
 Rectangle {
 	id: root
 
-	width: 1024
+	width: 800
 	height: 600
 
 	gradient: Gradient {
