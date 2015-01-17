@@ -112,8 +112,8 @@ func (m *Model) Paint(p *qml.Painter) {
 	gl.EnableClientState(GL.NORMAL_ARRAY)
 	gl.EnableClientState(GL.VERTEX_ARRAY)
 
-	gl.Translatef(2, 1.5, 0)
-	gl.Rotatef(120, 1, 1, 0)
+	gl.Translatef(2, 2.5, 0)
+	gl.Rotatef(260, 190, -135, 85)
 	gl.Rotatef(float32(90+((36000+m.Rotation)%360)), 1, 0, 0)
 
 	gl.Disable(GL.COLOR_MATERIAL)
