@@ -67,6 +67,7 @@ func run() error {
 	return nil
 }
 
+// A Model wraps a QML Object and contains the wavefront model and rotation
 type Model struct {
 	qml.Object
 
@@ -75,12 +76,14 @@ type Model struct {
 	Rotation int
 }
 
+// SetRotation sets the rotation and calls update
 func (m *Model) SetRotation(rotation int) {
 	m.Rotation = rotation
 
 	m.Call("update")
 }
 
+// Paint paints the model using the given painter
 func (m *Model) Paint(p *qml.Painter) {
 	gl := GL.API(p)
 
